@@ -9,7 +9,7 @@ if (isset($_POST['validation'])){
 
     $erreur = array();
 
-    if (strlen(trim($nom)) === 0)
+    if (strlen($nom) === 0)
         array_push($erreur, "Veuillez saisir votre nom");
     elseif (!ctype_alpha($nom))
         array_push($erreur, 'Veuillez saisir des caractères alphabétiques pour écrire votre nom');
@@ -21,7 +21,7 @@ if (isset($_POST['validation'])){
         array_push($erreur, 'Veuillez saisir une adresse mail');
     elseif (filter_var($email, FILTER_VALIDATE_EMAIL))
         array_push($erreur, 'Veuillez saisir une adresse mail valide');
-    if (strlen(trim($_POST['sujet'])) === 0)
+    if (strlen($_POST['sujet']) === 0)
         array_push($erreur, 'Veuillez renseigner le sujet de votre message');
     
     // Le code s'exécute si les conditions sont remplies
