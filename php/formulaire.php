@@ -6,6 +6,7 @@ if (isset($_POST['validation'])){
     $prenom = htmlentities(trim($_POST['prenom'])) ?? '';
     $email = htmlentities(trim($_POST['email'])) ?? '';
     $sujet = htmlentities(trim($_POST['sujet'])) ?? '';
+    $message = htmlentities(trim($_POST['message'])) ?? '';
 
     $erreur = array();
 
@@ -24,22 +25,50 @@ if (isset($_POST['validation'])){
     if (strlen($_POST['sujet']) === 0)
         array_push($erreur, 'Veuillez renseigner le sujet de votre message');
     
-    // Le code s'exécute si les conditions sont remplies
-    if (count($erreur) === 0 )
+    
+    // Le code s'$email_to = "votre@email";
+    $email_to = "alexandrecalimero@gmail.com";
+    $email_subject = "Le sujet de votre email";
+    if (count($erreur) === 0 ){
+        $email_message = "Détail.\n\n";
+        $email_message .= "Nom: ". $nom ."\n";
+        $email_message .= "Prenom: ". $prenom."\n";
+        $email_message .= "Email: ". $email ."\n";
+        $email_message .= "Sujet: " . $sujet . "\n";
+        $headers = 'From: '.$email."\r\n".
+        'Reply-To: '.$email."\r\n" .
+        'X-Mailer: PHP/' . phpversion();
+        mail($email_to, $email_subject, $email_message, $headers);
         echo 'Message envoyé';
+    }
+    // Sinon, un message d'erreur est renvoyé
     else {
-            $messageErreur = "<ul>";
-            $i = 0;
-            do {
-                $messageErreur .= "<li>";
-                $messageErreur .= $erreur[$i];
-                $messageErreur .= "</li>";
-                $i++;
-            } while ($i < count($erreur));
+
+function messageErreur()
+{
+    // $erreur = array();
+    $messageErreur = "<ul>";
+    for ($i = 0; $i < count($erreur); $i++)
+    {
+        $messageErreur .= "<li>";
+        $messageErreur .= $erreur[$i];
+        $messageErreur .= "</li>";
+    }
+    $messageErreur = "</ul>";
+    echo $messageErreur;
+}
+        //     $messageErreur = "<ul>";
+        //     $i = 0;
+        //     do {
+        //         $messageErreur .= "<li>";
+        //         $messageErreur .= $erreur[$i];
+        //         $messageErreur .= "</li>";
+        //         $i++;
+        //     } while ($i < count($erreur));
     
-            $messageErreur .= "</ul>";
+        //     $messageErreur .= "</ul>";
     
-            echo $messageErreur;
+        //     echo $messageErreur;
         }
 }
 else {
