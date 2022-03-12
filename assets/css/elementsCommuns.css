@@ -1,4 +1,4 @@
-/* Root, fonts et image de fond */
+/* Root, polices d'écriture et image de fond */
 * {
     margin: 0;
     padding: 0;
@@ -7,22 +7,22 @@
 
 @font-face {
     font-family: 'font1';
-    src: url('/fonts/ImperialScript-Regular.ttf');
+    src: url('http://localhost/MyPersonalWebsite/assets/fonts/ImperialScript-Regular.ttf');
 }
 
 @font-face {
     font-family: 'font2';
-    src: url('/fonts/Kalam-Regular.ttf');
+    src: url('http://localhost/MyPersonalWebsite/assets/fonts/Kalam-Regular.ttf');
 }
 
 @font-face {
     font-family: 'font3';
-    src: url('/fonts/OoohBaby-Regular.ttf');
+    src: url('http://localhost/MyPersonalWebsite/assets/fonts/OoohBaby-Regular.ttf');
 }
 
 body {
     font-family: 'font2';
-    background-image: url('/img/background-modifie.png');
+    background-image: url('http://localhost/MyPersonalWebsite/assets/img/background-modifie.png');
     color: white;
 }
 
