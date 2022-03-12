@@ -1,3 +1,4 @@
+<!-- Fonction servant à charger toutes les fonctions du dossier functions -->
 <?php
 function inclusionFct(){
     $functionFiles = glob('./functions/*.php');
