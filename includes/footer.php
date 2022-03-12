@@ -6,5 +6,5 @@
             <!-- Attention, download n'est pas reconnu par tous les navigateurs -->
         </div>
     </footer>
-    <script src="js/menu.js"></script>
+    <script src="http://localhost/MyPersonalWebsite/assets/js/menu.js"></script>
 </body>
