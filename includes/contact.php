@@ -4,7 +4,7 @@
         <h2>Vous pouvez cliquer ou toucher les éléments ci-dessous.</h2>
         <p>Mon compte LinkedIn : <a href="https://www.linkedin.com/in/alexandre-nicaise/"
                 class="coordonnées">https://www.linkedin.com/in/alexandre-nicaise/</a></p>
-        <form action="" method="post">
+        <form action="index.php?page=formulaire" method="post">
             <label for="nom">Votre nom : </label><input type="text" name="nom" id="nom" maxlength="20"
                 placeholder="Inscrivez votre nom ici" spellcheck="false" required />
             <label for="prenom">Votre prénom : </label><input type="text" name="prenom" id="prenom" maxlength="20"
