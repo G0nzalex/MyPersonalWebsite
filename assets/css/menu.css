@@ -1,0 +1,92 @@
+@font-face {
+    font-family: 'font3';
+    src: url('/fonts/OoohBaby-Regular.ttf');
+}
+/* Menu burger */
+.burger-button {
+    position: fixed;
+    top: 5px;
+    right: 2vh;
+    z-index: 9;
+    padding: 15px;
+    border: 2px solid #999;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.burger-button span{
+    width: 30px;
+    border: 2px solid #999;
+    display: block;
+    border-radius: 2px;
+    transition: .5s;
+}
+.burger-top,
+.burger-bottom {
+    position: absolute;
+}
+
+.burger-top {
+    top: 5px;
+}
+
+.burger-bottom {
+    bottom: 5px;
+}
+.burger-button.active .burger-top {
+    position: absolute;
+    top: 15px;
+    transform: rotate(45deg);
+}
+
+.burger-button.active .burger-middle {
+    border-color: transparent;
+    background-color: transparent;
+}
+.burger-button.active .burger-bottom {
+    position: absolute;
+    bottom: 15px;
+    transform: rotate(-45deg);
+}
+
+.burger-menu {
+    border-radius: 5px;
+    height: 30vh;
+    display: flex;
+    position: fixed;
+    right: -180px;
+    background-color: #1598cc;
+    padding: 1rem;
+    box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.1);
+    z-index: 5;
+    transition: .5s;
+    align-content: space-around;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.burger-menu.active {
+    right: 0;
+}
+
+.burger-menu a {
+    padding: 5px 15px;
+    font-family: 'font3';
+}
+/* Responsive design mode tablette */
+@media screen and (min-width: 768px) {
+    .burger-button, .burger-menu{
+        display: none;
+    }
+    .footer {
+        width: 90%;
+        margin: auto;
+        text-align: center;
+        display: block;
+    }
+    .span1{
+        display: initial;
+    }
+    .span2{
+        display: none;
+    }
+}

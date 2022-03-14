@@ -1,0 +1,107 @@
+/* CSS de la page description */
+.presentation blockquote{
+    background-color: grey;
+    border: 2px solid white;
+    border-radius: 25%;
+    padding: 15px;
+    margin: auto;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 1.5rem;
+}
+.presentation p{
+    margin-top: 20px;
+}
+/* Les tableaux cliquables cachés en mode smartphone et tablette*/
+table{
+    display: none;
+}
+.pro{
+    margin-top: 20px;
+}
+.pro div{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+.hidden{
+    display: none;
+}
+/* Responsive design mode tablette */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .presentation blockquote{
+        font-size: 2rem;
+        border-radius: 15%;
+    }
+}
+/* Responsive design mode ordinateu (tableaux cliquables) */
+@media screen and (min-width: 1024px) {
+    .presentation blockquote{
+        font-size: 2.2rem;
+        border-radius: 0;
+    }
+    .tableaux{
+        display: flex;
+    }
+    table{
+        display: initial;
+        width: 47%;
+        border: 2px solid white;
+        margin: 0 10px;
+        background-color: black;
+    }
+    th, td{
+        padding: 0 20px;
+        border: 1px solid white;
+        width: 100%;
+        height: 100%;
+    }
+    .event{
+        transition: .5s;
+        cursor: pointer;
+    }
+    .event:hover{
+        transition: .5s;
+        text-decoration: underline;
+        background-color: grey;
+    }
+    .cases{
+       bottom: -1000px;
+       left: 153px;
+       right: 153px;
+       position: fixed;
+       transition: 1s;
+       background-color: grey;
+       display: flex;
+       justify-content: space-between;
+       margin: auto;
+    }
+    .cases p{
+        margin-top: 20px;
+    }
+    .bouton{
+        border: 2px solid white;
+        cursor: pointer;
+        top: 0;
+        width: 30px;
+        aspect-ratio: 1/1;
+        position: relative;
+    }
+    .bouton:hover{
+        background-color: black;
+    }
+    .bouton span{
+        width: 30px;
+        top: 10px;
+        border: 2px solid #999;
+        border-radius: 2px;
+        position: absolute;
+        right: 0;
+    }
+    .trait1{
+        transform: rotate(45deg);
+    }
+    .trait2{
+        transform: rotate(-45deg);
+    }
+}
