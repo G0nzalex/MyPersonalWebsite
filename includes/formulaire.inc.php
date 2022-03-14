@@ -26,7 +26,6 @@ if (isset($_POST['validation'])) {
 
     // Envoi du mail
     if (count($erreur) === 0) {
-        ini_set('sendmail_from', 'smtp.free.fr');
         $from = $email;
         $to = "alexandrecalimero@gmail.com";
         $subject = $sujet;
