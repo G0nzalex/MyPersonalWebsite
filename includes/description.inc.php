@@ -14,7 +14,7 @@
                     Normandie</strong>, je fais mes premiers pas dans le monde du travail. </p>
         </section>
         <section class="pro">
-            <h2 class="cache">Mon parcours professionnelle</h2>
+            <h2 class="cache">Mon parcours professionnel</h2>
             <!-- Les tableaux cliquables -->
             <div class="tableaux cache">
                 <table class="t1">
