@@ -18,7 +18,7 @@
         <h2 id="monSlogan">Tel que vous le voyez</h2>
     </div>
     <?php
-    require_once './includes/nav.php';
+    require_once './display/nav.php';
     ?> 
 
 </header>
