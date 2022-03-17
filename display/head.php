@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./assets/css/elementsCommuns.css">
     <link rel="stylesheet" href="./assets/css/menu.css">
     <link rel="stylesheet" href="./assets/css/description.css">
+    <link rel="stylesheet" href="./assets/css/formulaire.css">
     <script src="http://localhost/MyPersonalWebsite/assets/js/jquery-3.6.0.min.js"></script>
 </head>
 <header>
