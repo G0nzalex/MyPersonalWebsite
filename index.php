@@ -3,6 +3,6 @@
 include './functions/inclusionFct.php';
 inclusionFct();
 
-require_once './includes/head.php';
-require_once './includes/main.php';
-require_once './includes/footer.php';
+require_once './display/head.php';
+require_once './display/main.php';
+require_once './display/footer.php';
