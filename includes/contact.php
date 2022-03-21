@@ -6,7 +6,7 @@
                 class="coordonnées">https://www.linkedin.com/in/alexandre-nicaise/</a></p>
         <form action="index.php?page=formulaire" method="post">
             <label for="nom">Votre nom : </label><input type="text" name="nom" id="nom" maxlength="20"
-                placeholder="Inscrivez votre nom ici" spellcheck="false" required />
+                placeholder="Inscrivez votre nom ici" spellcheck="false" required /><br />
             <label for="prenom">Votre prénom : </label><input type="text" name="prenom" id="prenom" maxlength="20"
                 placeholder="Inscrivez votre prénom ici" spellcheck="false" required /><br />
             <label for="email">Votre email : </label><input type="email" name="email" id="email"
