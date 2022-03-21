@@ -85,8 +85,8 @@ main {
     width: 260px;
     margin: auto;
 }
-.image img {
-    width: 100%;
+#welcome{
+    width: 80%;
 }
 .span1{
     display: none;
