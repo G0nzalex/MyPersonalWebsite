@@ -21,11 +21,16 @@ class Formulaire
     // }
     public function getNom() : string
     {
-        return isset ($this->nomUtilisateur) ? $this->nomUtilisateur : $this->msgErreur = "Pas de nom";
+        return isset ($this->nomUtilisateur) && strlen($this->nomUtilisateur) ? $this->nomUtilisateur : $this->msgErreur = "Pas de nom";
     }
-    public function setNom($nom) : void
+    public function setNom(string $nom) : string
     {
-        $this->nomUtilisateur = $nom;
+        if (ctype_alpha($nom)){
+            $this->nomUtilisateur = $nom;
+            return "Modification effectuée";
+        }
+        else
+            return "Veuillez ne taper que des lettres pour votre nom";
     }
     public function getPrenom() : string
     {
