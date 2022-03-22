@@ -55,7 +55,12 @@
 require './classes/Formulaire.php';
 $moi = new Formulaire();
 var_dump($moi);
-$moi->setNom("alex");
+$moi->setNom("nicaise");
 $nom = $moi->getNom();
+$moi->setemail('alexandre.nicaise.2000gmail.com');
+$email = $moi->getEmail();
 var_dump($nom);
+var_dump($moi->setNom("alex"));
+var_dump($email);
+var_dump($moi->setEmail('alexandre.nicaise.2000gmail.com'));
 include 'contact.php';
