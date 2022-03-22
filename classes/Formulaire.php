@@ -36,23 +36,33 @@ class Formulaire
     {
         return isset ($this->prenomUtilisateur) && strlen($this->prenomUtilisateur) ? $this->prenomUtilisateur : $this->msgErreur = "Pas de prénom";
     }
-    public function setPrenom(string $prenom) : void
+    public function setPrenom(string $prenom) : string
     {
-        $this->prenomUtilisateur = $prenom;
+        if (ctype_alpha($prenom)){
+            $this->prenomUtilisateur = $prenom;
+            return "Modification effectuée";
+        }
+        else
+            return "Veuillez ne taper que des lettres pour votre prénom";
     }
     public function getEmail() : string
     {
         return isset ($this->emailUtilisateur) && strlen($this->emailUtilisateur) ? $this->emailUtilisateur : $this->msgErreur = "Pas d'email";
     }
-    public function setEmail(string $email) : void
+    public function setEmail(string $email) : string
     {
-        $this->emailUtilisateur = $email;
+        if (filter_var($email, FILTER_VALIDATE_EMAIL)){
+            $this->emailUtilisateur = $email;
+            return "Modification effectuée";
+        }
+        else
+            return "Veuillez saisir une adresse mail valide";
     }
     public function getSujet() : string
     {
         return isset ($this->sujetMail) && strlen($this->sujetMail) ? $this->sujetMail : $this->msgErreur = "Pas de sujet";
     }
-    public function setSujet(string $sujet)
+    public function setSujet(string $sujet) : void
     {
         $this->sujetMail = $sujet;
     }
@@ -60,7 +70,7 @@ class Formulaire
     {
         return isset ($this->contenuMail) && strlen($this->contenuMail) ? $this->contenuMail : $this->msgErreur = "Pas de message";
     }
-    public function setMessage(string $message)
+    public function setMessage(string $message) : void
     {
         $this->contenuMail = $message;
     }
