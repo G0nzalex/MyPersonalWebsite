@@ -2,14 +2,12 @@
 
 class Formulaire
 {
-    public string $nomUtilisateur = "";
+    private string $nomUtilisateur = "";
     private string $prenomUtilisateur = "";
     private string $emailUtilisateur = "";
     private string $sujetMail = "";
     private string $contenuMail = "";
-    private array $erreur = [];
-    private string $msgErreur = "";
-    private string $messageErreur = "";
+
 
     // public function __construct($nom, $prenom, $email, $sujet, $message)
     // {
@@ -26,6 +24,8 @@ class Formulaire
     public function setNom(string $nom) : string
     {
         if (ctype_alpha($nom)){
+            if (ctype_lower($nom))
+                $nom = mb_strtoupper($nom);
             $this->nomUtilisateur = $nom;
             return "Modification effectuée";
         }
@@ -34,7 +34,7 @@ class Formulaire
     }
     public function getPrenom() : string
     {
-        return isset ($this->prenomUtilisateur) ? $this->prenomUtilisateur : $this->msgErreur = "Pas de prénom";
+        return isset ($this->prenomUtilisateur) && strlen($this->prenomUtilisateur) ? $this->prenomUtilisateur : $this->msgErreur = "Pas de prénom";
     }
     public function setPrenom(string $prenom) : void
     {
@@ -42,7 +42,7 @@ class Formulaire
     }
     public function getEmail() : string
     {
-        return isset ($this->emailUtilisateur) ? $this->emailUtilisateur : $this->msgErreur = "Pas d'email";
+        return isset ($this->emailUtilisateur) && strlen($this->emailUtilisateur) ? $this->emailUtilisateur : $this->msgErreur = "Pas d'email";
     }
     public function setEmail(string $email) : void
     {
@@ -50,7 +50,7 @@ class Formulaire
     }
     public function getSujet() : string
     {
-        return isset ($this->sujetMail) ? $this->sujetMail : $this->msgErreur = "Pas de sujet";
+        return isset ($this->sujetMail) && strlen($this->sujetMail) ? $this->sujetMail : $this->msgErreur = "Pas de sujet";
     }
     public function setSujet(string $sujet)
     {
@@ -58,7 +58,7 @@ class Formulaire
     }
     public function getMessage() : string
     {
-        return isset ($this->contenuMail) ? $this->contenuMail : $this->msgErreur = "Pas de message";
+        return isset ($this->contenuMail) && strlen($this->contenuMail) ? $this->contenuMail : $this->msgErreur = "Pas de message";
     }
     public function setMessage(string $message)
     {
