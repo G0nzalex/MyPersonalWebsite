@@ -7,6 +7,8 @@ class Formulaire
     private string $emailUtilisateur = "";
     private string $sujetMail = "";
     private string $contenuMail = "";
+    // private string $msgErreur = "";
+    // private array $erreur = [];
 
 
     // public function __construct($nom, $prenom, $email, $sujet, $message)
@@ -19,48 +21,32 @@ class Formulaire
     // }
     public function getNom() : string
     {
-        return isset ($this->nomUtilisateur) && strlen($this->nomUtilisateur) ? $this->nomUtilisateur : $this->msgErreur = "Pas de nom";
+        return !isset($this->nomUtilisateur) || strlen($this->nomUtilisateur) === 0 || !ctype_alpha($this->nomUtilisateur) ? $this->nomUtilisateur = "" : mb_strtoupper($this->nomUtilisateur);
+
     }
-    public function setNom(string $nom) : string
+    public function setNom(string $nom) : void
     {
-        if (ctype_alpha($nom)){
-            if (ctype_lower($nom))
-                $nom = mb_strtoupper($nom);
-            $this->nomUtilisateur = $nom;
-            return "Modification effectuée";
-        }
-        else
-            return "Veuillez ne taper que des lettres pour votre nom";
+        $this->nomUtilisateur = $nom;
     }
     public function getPrenom() : string
     {
-        return isset ($this->prenomUtilisateur) && strlen($this->prenomUtilisateur) ? $this->prenomUtilisateur : $this->msgErreur = "Pas de prénom";
+        return !isset($this->prenomUtilisateur) || strlen($this->prenomUtilisateur) === 0 || !ctype_alpha($this->prenomUtilisateur) ? $this->prenomUtilisateur = "" : $this->prenomUtilisateur;
     }
-    public function setPrenom(string $prenom) : string
+    public function setPrenom(string $prenom) : void
     {
-        if (ctype_alpha($prenom)){
-            $this->prenomUtilisateur = $prenom;
-            return "Modification effectuée";
-        }
-        else
-            return "Veuillez ne taper que des lettres pour votre prénom";
+        $this->prenomUtilisateur = $prenom;
     }
     public function getEmail() : string
     {
-        return isset ($this->emailUtilisateur) && strlen($this->emailUtilisateur) ? $this->emailUtilisateur : $this->msgErreur = "Pas d'email";
+        return !isset($this->emailUtilisateur) || strlen($this->emailUtilisateur) === 0 || !filter_var($this->emailUtilisateur, FILTER_VALIDATE_EMAIL) ? $this->emailUtilisateur = "" : $this->emailUtilisateur;
     }
-    public function setEmail(string $email) : string
+    public function setEmail(string $email) : void
     {
-        if (filter_var($email, FILTER_VALIDATE_EMAIL)){
-            $this->emailUtilisateur = $email;
-            return "Modification effectuée";
-        }
-        else
-            return "Veuillez saisir une adresse mail valide";
+        $this->emailUtilisateur = $email;
     }
     public function getSujet() : string
     {
-        return isset ($this->sujetMail) && strlen($this->sujetMail) ? $this->sujetMail : $this->msgErreur = "Pas de sujet";
+        return !isset($this->sujetMail) || strlen($this->sujetMail) === 0 ? $this->sujetMail = "" : $this->sujetMail;
     }
     public function setSujet(string $sujet) : void
     {
@@ -68,10 +54,26 @@ class Formulaire
     }
     public function getMessage() : string
     {
-        return isset ($this->contenuMail) && strlen($this->contenuMail) ? $this->contenuMail : $this->msgErreur = "Pas de message";
+        return !isset($this->contenuMail) || strlen($this->contenuMail) === 0 ? $this->contenuMail = "" : $this->contenuMail;
     }
     public function setMessage(string $message) : void
     {
         $this->contenuMail = $message;
+    }
+
+    public function envoiMail(string $destinataire) : string
+    {
+        $from = $this->getEmail();
+        $to = $destinataire;
+        $subject = $this->getSujet();
+        $header = "De" . $from;
+        mail($to, $subject, $this->contenuMail, $header);
+        return "Message envoyé";
+    }
+
+    public function erreurs() : string
+    {
+        if (count($this->erreur) > 1)
+            return $this->msgErreur = "Vous n'avez pas rempli plusieurs champs";
     }
 }
