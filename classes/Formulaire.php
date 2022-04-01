@@ -1,24 +1,14 @@
 <?php
-
+include 'Erreurs.php';
 class Formulaire
 {
+    use Erreurs;
     private string $nomUtilisateur = "";
     private string $prenomUtilisateur = "";
     private string $emailUtilisateur = "";
     private string $sujetMail = "";
     private string $contenuMail = "";
-    // private string $msgErreur = "";
-    // private array $erreur = [];
-
-
-    // public function __construct($nom, $prenom, $email, $sujet, $message)
-    // {
-    //     $this->nomUtilisateur = $nom;
-    //     $this->prenomUtilisateur = $prenom;
-    //     $this->emailUtilisateur = $email;
-    //     $this->sujetMail = $sujet;
-    //     $this->contenuMail = $message;
-    // }
+    
     public function getNom() : string
     {
         return !isset($this->nomUtilisateur) || strlen($this->nomUtilisateur) === 0 || !ctype_alpha($this->nomUtilisateur) ? $this->nomUtilisateur = "" : mb_strtoupper($this->nomUtilisateur);
@@ -67,13 +57,7 @@ class Formulaire
         $to = $destinataire;
         $subject = $this->getSujet();
         $header = "De" . $from;
-        mail($to, $subject, $this->contenuMail, $header);
+        mail($to, $subject, $this->getMessage(), $header);
         return "Message envoyé";
-    }
-
-    public function erreurs() : string
-    {
-        if (count($this->erreur) > 1)
-            return $this->msgErreur = "Vous n'avez pas rempli plusieurs champs";
     }
 }
