@@ -57,10 +57,21 @@ if (isset($_POST['validation'])) {
 // }
 $donnees->setNom($nom);
 $nom = $donnees->getNom();
+$erreurs = [];
+$messageErreur = $donnees->msgErreur($nom, "<p>Une erreur a été détectée, veuillez réecrire votre nom</p>");
+if (isset($erreurs) && strlen($messageErreur))
+    array_push($erreurs, "");
+var_dump($erreurs);
+// if (strlen($messageErreur) !== 0)
+//     array_push($erreurs, "");
+// var_dump($erreurs) ;
+// if (strlen($nom) === 0)
+//     echo $messageErreur = $donnees->msgErreur($nom, $donnees, $getNom, "bonjour");
 // if (strlen($nom) === 0)
 //     echo $messageErreur = "<p>Veuillez saisir votre nom</p>";
 $donnees->setPrenom($prenom);
 $prenom = $donnees->getPrenom();
+
 // if (strlen($prenom) === 0)
 //     echo $messageErreur = "<p>Veuillez saisir votre prénom</p>";
 $donnees->setEmail($email);
